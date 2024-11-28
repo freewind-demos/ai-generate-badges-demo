@@ -69,14 +69,28 @@ const BadgeIcon = styled.div<{ color: string }>`
     0 0 0 4px #FFF,
     0 0 0 5px #B8860B,
     0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    filter: blur(1px);
+  }
 `;
 
 const IconInner = styled.div`
   position: relative;
-  color: #B8860B;
+  z-index: 1;
+  color: #8B4513;
   text-shadow: 
-    0 0.5px 0 #FFD700,
-    0 -0.5px 0 #B8860B;
+    0 1px 2px rgba(255, 255, 255, 0.8);
   transform: scale(0.9);
 `;
 
