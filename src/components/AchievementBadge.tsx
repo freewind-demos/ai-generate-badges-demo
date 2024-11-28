@@ -46,10 +46,10 @@ const BadgeHeader = styled.div`
 `;
 
 const BadgeIcon = styled.div<{ color: string }>`
-  width: 68px;
-  height: 68px;
-  font-size: 2.2rem;
-  margin-right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  margin-right: 1rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -64,31 +64,32 @@ const BadgeIcon = styled.div<{ color: string }>`
     #FDB931 100%
   );
   box-shadow: 
+    0 0 0 2px #FFF,
+    0 0 0 3px #FFD700,
     0 0 0 4px #FFF,
-    0 0 0 6px #FFD700,
-    0 0 0 8px #FFF,
-    0 0 0 10px #B8860B,
-    0 4px 8px rgba(0, 0, 0, 0.2);
+    0 0 0 5px #B8860B,
+    0 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
 const IconInner = styled.div`
   position: relative;
   color: #B8860B;
   text-shadow: 
-    0 1px 0 #FFD700,
-    0 -1px 0 #B8860B;
+    0 0.5px 0 #FFD700,
+    0 -0.5px 0 #B8860B;
+  transform: scale(0.9);
 `;
 
 const BadgeTitle = styled.h3`
   margin: 0;
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `;
 
 const BadgeDescription = styled.p`
   margin: 0;
   color: #666;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 `;
 
 const BadgesContainer = styled.div`
