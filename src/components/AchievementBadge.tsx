@@ -75,13 +75,13 @@ const BadgeIcon = styled.div<{ color: string }>`
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    filter: blur(1px);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    filter: blur(2px);
   }
 `;
 
