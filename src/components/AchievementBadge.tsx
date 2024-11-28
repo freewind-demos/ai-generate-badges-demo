@@ -28,11 +28,55 @@ const BadgeHeader = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    right: -1rem;
+    bottom: -0.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent,
+      rgba(0, 0, 0, 0.1) 50%,
+      transparent
+    );
+  }
 `;
 
-const BadgeIcon = styled.div`
-  font-size: 2rem;
-  margin-right: 1rem;
+const BadgeIcon = styled.div<{ color: string }>`
+  width: 68px;
+  height: 68px;
+  font-size: 2.2rem;
+  margin-right: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, 
+    #FFD700 0%,
+    #FDB931 20%,
+    #FDD017 40%,
+    #FDB931 60%,
+    #FFD700 80%,
+    #FDB931 100%
+  );
+  box-shadow: 
+    0 0 0 4px #FFF,
+    0 0 0 6px #FFD700,
+    0 0 0 8px #FFF,
+    0 0 0 10px #B8860B,
+    0 4px 8px rgba(0, 0, 0, 0.2);
+`;
+
+const IconInner = styled.div`
+  position: relative;
+  color: #B8860B;
+  text-shadow: 
+    0 1px 0 #FFD700,
+    0 -1px 0 #B8860B;
 `;
 
 const BadgeTitle = styled.h3`
@@ -89,7 +133,9 @@ export const AchievementBadge: React.FC<BadgeProps> = ({
   return (
     <BadgeContainer color={color}>
       <BadgeHeader>
-        <BadgeIcon>{icon}</BadgeIcon>
+        <BadgeIcon color={color}>
+          <IconInner>{icon}</IconInner>
+        </BadgeIcon>
         <BadgeTitle>{title}</BadgeTitle>
       </BadgeHeader>
       <BadgeDescription>{description}</BadgeDescription>
