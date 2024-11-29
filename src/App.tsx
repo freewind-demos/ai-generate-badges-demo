@@ -92,7 +92,7 @@ function App() {
 
       <ServiceSection
         title="游戏风格徽章"
-        description="使用SVG创建的游戏成就风格徽章，支持多种形状。"
+        description="使用SVG创建的游戏成就风格徽章。市面上类似服务主要是付费的企业平台（如Credly），或需要自己部署的开源方案（如Badgr）。其他选择包括使用Figma等设计工具自己制作，或使用游戏素材网站的资源。这里尝试用SVG实现一个简单的版本。"
         features={[
           "支持六边形、圆形、盾牌形状",
           "渐变和发光效果",
