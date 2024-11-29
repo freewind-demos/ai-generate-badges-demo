@@ -236,54 +236,85 @@ function App() {
     ];
   };
 
+  const getBadgenUrls = (achievement: typeof achievements[0]) => {
+    const baseTitle = encodeURIComponent(achievement.label);
+    const color = achievement.color;
+    return [
+      `https://badgen.net/badge/${baseTitle}/achieved/${color}`,
+      `https://badgen.net/badge/${baseTitle}/verified/${color}`,
+      `https://badgen.net/badge/${baseTitle}/${achievement.description}/${color}`
+    ];
+  };
+
+  type Achievement = {
+    title: string;
+    label: string;
+    description: string;
+    color: string;
+    icon: string;
+    logo: string;
+    style: 'flat' | 'flat-square' | 'plastic' | 'for-the-badge';
+  };
+
+  interface BadgeColumnProps {
+    title: string;
+    getBadges: (achievement: Achievement) => string[];
+    achievements: Achievement[];
+  }
+
+  const BadgeColumn = ({ title, getBadges, achievements }: BadgeColumnProps) => (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '30px',
+      minWidth: '300px'
+    }}>
+      <h3 style={{ 
+        margin: 0, 
+        textAlign: 'center',
+        padding: '10px',
+        backgroundColor: '#f0f0f0',
+        borderRadius: '4px'
+      }}>
+        {title}
+      </h3>
+      {achievements.map((achievement, index) => (
+        <div key={index} style={{
+          background: '#f5f5f5',
+          padding: '15px',
+          borderRadius: '8px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px'
+        }}>
+          <h4 style={{ margin: 0 }}>{achievement.title}</h4>
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '8px',
+            alignItems: 'flex-start'
+          }}>
+            {getBadges(achievement).map((url, urlIndex) => (
+              <img
+                key={urlIndex}
+                src={url}
+                alt={`${achievement.title} badge ${urlIndex + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <div style={{
       padding: '20px',
       display: 'flex',
       gap: '40px'
     }}>
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '30px',
-        minWidth: '300px'
-      }}>
-        <h3 style={{ 
-          margin: 0, 
-          textAlign: 'center',
-          padding: '10px',
-          backgroundColor: '#f0f0f0',
-          borderRadius: '4px'
-        }}>
-          Shields.io
-        </h3>
-        {achievements.map((achievement, index) => (
-          <div key={index} style={{
-            background: '#f5f5f5',
-            padding: '15px',
-            borderRadius: '8px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px'
-          }}>
-            <h4 style={{ margin: 0 }}>{achievement.title}</h4>
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              gap: '8px',
-              alignItems: 'flex-start'
-            }}>
-              {getBadgeUrls(achievement).map((url, urlIndex) => (
-                <img
-                  key={urlIndex}
-                  src={url}
-                  alt={`${achievement.title} badge ${urlIndex + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <BadgeColumn title="Shields.io" getBadges={getBadgeUrls} achievements={achievements} />
+      <BadgeColumn title="Badgen" getBadges={getBadgenUrls} achievements={achievements} />
     </div>
   );
 }
