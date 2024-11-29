@@ -240,37 +240,50 @@ function App() {
     <div style={{
       padding: '20px',
       display: 'flex',
-      flexWrap: 'wrap',
-      gap: '20px',
-      justifyContent: 'flex-start'
+      gap: '40px'
     }}>
-      {achievements.map((achievement, index) => (
-        <div key={index} style={{
-          background: '#f5f5f5',
-          padding: '15px',
-          borderRadius: '8px',
-          minWidth: '300px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px'
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '30px',
+        minWidth: '300px'
+      }}>
+        <h3 style={{ 
+          margin: 0, 
+          textAlign: 'center',
+          padding: '10px',
+          backgroundColor: '#f0f0f0',
+          borderRadius: '4px'
         }}>
-          <h4 style={{ margin: 0 }}>{achievement.title}</h4>
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '8px',
-            alignItems: 'flex-start'
+          Shields.io
+        </h3>
+        {achievements.map((achievement, index) => (
+          <div key={index} style={{
+            background: '#f5f5f5',
+            padding: '15px',
+            borderRadius: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px'
           }}>
-            {getBadgeUrls(achievement).map((url, urlIndex) => (
-              <img
-                key={urlIndex}
-                src={url}
-                alt={`${achievement.title} badge ${urlIndex + 1}`}
-              />
-            ))}
+            <h4 style={{ margin: 0 }}>{achievement.title}</h4>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '8px',
+              alignItems: 'flex-start'
+            }}>
+              {getBadgeUrls(achievement).map((url, urlIndex) => (
+                <img
+                  key={urlIndex}
+                  src={url}
+                  alt={`${achievement.title} badge ${urlIndex + 1}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
