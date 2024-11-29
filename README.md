@@ -161,6 +161,28 @@ https://img.shields.io/badge/Powered%20by-AI-blue?labelColor=gray&color=green
 }
 ```
 
+## 探索过程
+
+在开发过程中，我们探索了多个徽章服务：
+
+1. 最初尝试：
+   - Badgen：类似 Shields.io，但功能较少
+   - Poser：已不再维护
+
+2. 游戏风格徽章探索：
+   - 市面上的专业服务：
+     - Credly：付费的企业平台
+     - Badgr：需要自部署的开源方案
+   - 设计工具：
+     - Figma：需要设计能力
+     - Game-icons.net：游戏风格图标资源
+   - 最终选择：自己用SVG实现基础版本
+
+3. 服务取舍：
+   - 移除了重复的服务（Badgen、Poser）
+   - 保留最具特色的三个实现
+   - 确保每个服务都有其独特价值
+
 ## 注意事项
 
 1. 确保URL中的特殊字符都经过正确编码
