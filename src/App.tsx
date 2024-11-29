@@ -1,6 +1,6 @@
-import { ShieldsIO } from './components/ShieldsIO';
 import { ForTheBadge } from './components/ForTheBadge';
-import { Poser } from './components/Poser';
+import { ShieldsIO } from './components/ShieldsIO';
+import { SvgBadge } from './components/SvgBadge';
 
 const ServiceSection: React.FC<{
   title: string;
@@ -48,9 +48,10 @@ function App() {
   return (
     <div style={{
       padding: '20px',
-      display: 'flex',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
       gap: '40px',
-      flexWrap: 'wrap'
+      alignItems: 'start'
     }}>
       <ServiceSection
         title="Shields.io"
@@ -90,21 +91,22 @@ function App() {
       </ServiceSection>
 
       <ServiceSection
-        title="Poser"
-        description="灵活的徽章生成服务，支持多种样式和颜色。"
+        title="游戏风格徽章"
+        description="使用SVG创建的游戏成就风格徽章，支持多种形状。"
         features={[
-          "支持多种徽章样式",
-          "可自定义颜色和文本",
-          "简单易用的API",
-          "生成速度快"
+          "支持六边形、圆形、盾牌形状",
+          "渐变和发光效果",
+          "等级显示",
+          "自定义颜色和图标"
         ]}
         limitations={[
-          "样式选项相对固定",
-          "不支持自定义图标",
-          "文档更新不及时"
+          "需要自己设计SVG",
+          "加载略慢",
+          "不支持动画效果",
+          "样式相对固定"
         ]}
       >
-        <Poser />
+        <SvgBadge />
       </ServiceSection>
     </div>
   );
