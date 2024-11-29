@@ -1,5 +1,58 @@
-
 const achievements = [
+  {
+    title: '黑客马拉松参与者',
+    label: 'Hackathon Participants',
+    description: '参与公司黑客马拉松活动',
+    color: '9B59B6',
+    icon: '💻',
+    logo: 'hackerone',
+    style: 'flat-square' as const
+  },
+  {
+    title: '客户端仪表盘',
+    label: 'Client Dashboard',
+    description: '为客户端开发仪表盘功能',
+    color: '3498DB',
+    icon: '📊',
+    logo: 'react',
+    style: 'flat' as const
+  },
+  {
+    title: '手机工具贡献者',
+    label: 'Phone Tool Contributors',
+    description: '为手机工具项目做出贡献',
+    color: 'E74C3C',
+    icon: '📱',
+    logo: 'android',
+    style: 'flat-square' as const
+  },
+  {
+    title: '一年服务',
+    label: '1 Year',
+    description: '在公司服务满一年',
+    color: '2ECC71',
+    icon: '🌱',
+    logo: 'microsoft',
+    style: 'for-the-badge' as const
+  },
+  {
+    title: '五年服务',
+    label: '5 Years',
+    description: '在公司服务满五年',
+    color: 'F1C40F',
+    icon: '🌟',
+    logo: 'microsoft',
+    style: 'for-the-badge' as const
+  },
+  {
+    title: '十年服务',
+    label: '10 Years',
+    description: '在公司服务满十年',
+    color: 'E67E22',
+    icon: '👑',
+    logo: 'microsoft',
+    style: 'for-the-badge' as const
+  },
   {
     title: '入职里程碑',
     label: '工作年限',
@@ -170,7 +223,7 @@ const achievements = [
     icon: '☁️',
     logo: 'amazonaws',
     style: 'flat-square' as const
-  },
+  }
 ];
 
 function App() {
